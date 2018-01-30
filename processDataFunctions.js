@@ -2,9 +2,8 @@ function combosToDestination(common_destination){
 // Function that takes quotes in common_destinations and evaluates all of the combinations of flights
 // Produces an array of  ALL combinations, each element contains an object:
 //      > Average Cost
-//      > Time Difference
-//          > Start
-//          > End
+//      > Price as % of Average Cost
+//      > Time Differences
 //      > Relavent Flight Information
 
 
@@ -19,34 +18,60 @@ function combosToDestination(common_destination){
         for (var j = 0; j < common_destination[1].length; j++){
             // Find average Price
             averagePrice = 0.5*(common_destination[0][i].MinPrice + common_destination[1][j].MinPrice);
+
             // Difference in Arrival Time
             var d1 = new Date(common_destination[0][i].OutboundLeg.DepartureDate);
             var d2 = new Date(common_destination[1][j].OutboundLeg.DepartureDate);
             var d_diff_out = d2 - d1;
             var d_diff_out_hours = Math.abs(Math.floor(d_diff_out / 60e3 / 60));
+
             // Difference in Departure Time
             var d3 = new Date(common_destination[0][i].InboundLeg.DepartureDate);
             var d4 = new Date(common_destination[1][j].InboundLeg.DepartureDate);
             var d_diff_in = d3 - d4;
             var d_diff_in_hours = Math.abs(Math.floor(d_diff_in / 60e3 / 60));
+
             // Put comparison in object
             var combo = {
                 flight_1: {
+                    // Location Information
                     OriginId: common_destination[0][i].OutboundLeg.OriginId,
                     DestinationId: common_destination[0][i].OutboundLeg.DestinationId,
+
+                    // Price Information
+                    Price: common_destination[0][i].MinPrice,
+                    PriceVsAverage: Math.floor(100 * (common_destination[0][i].MinPrice / averagePrice)),
+
+                    // Date/Time Information
                     OutboundDate: d1,
                     InboundDate: d3,
-                    Price: common_destination[0][i].MinPrice
+                    // wait times for origin 1
+                    Wait_Start: isWaitValid(d2-d1),
+                    Wait_End: isWaitValid(d3-d4),
+                    Wait_Total: isWaitValid(d2-d1) + isWaitValid(d3-d4),
                 },
                 flight_2: {
+                    // Location Information
                     OriginId: common_destination[1][j].OutboundLeg.OriginId,
                     DestinationId: common_destination[1][j].OutboundLeg.DestinationId,
+                    
+                    // Price Information
+                    Price: common_destination[1][j].MinPrice,
+                    PriceVsAverage: Math.floor(100 * (common_destination[1][j].MinPrice / averagePrice)),
+
+                    // Date/Time Information
                     OutboundDate: d2,
                     InboundDate: d4,
-                    Price: common_destination[1][j].MinPrice
+                    // wait times for origin 2
+                    Wait_Start: isWaitValid(d1-d2),
+                    Wait_End: isWaitValid(d4-d3),
+                    Wait_Total: isWaitValid(d1-d2) + isWaitValid(d4-d3)
                 },
                 comparison: {
+                    // Price Information
                     AveragePrice: averagePrice,
+
+                    // Date/Time Information
                     HoursDifference_out: d_diff_out_hours,
                     HoursDifference_in: d_diff_in_hours
                 }
@@ -62,4 +87,8 @@ function combosToDestination(common_destination){
     });
 
     return Combos;
+}
+
+function isWaitValid(wait){
+    return Math.abs(Math.floor(wait / 60e3 / 60))
 }
