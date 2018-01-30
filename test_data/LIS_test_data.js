@@ -1,11 +1,11 @@
 // Test Data for FLITEUP
-// OriginId = 1 (GLASGOW)
+// OriginId = 2 (LISBON)
 // based on example API Response of Skyscanner 'Browse Routes'
 
 var LIS_DATA = {
     "Routes": [
       { // Istanbul
-        "OriginId": 1,
+        "OriginId": 2,
         "DestinationId": 3,
         "QuoteIds": [
           1,
@@ -15,7 +15,7 @@ var LIS_DATA = {
         "QuoteDateTime": "2018-01-01T12:00:00"
       },
       { // Paris
-        "OriginId": 1,
+        "OriginId": 2,
         "DestinationId": 4,
         "QuoteIds": [
           3,
@@ -25,7 +25,7 @@ var LIS_DATA = {
         "QuoteDateTime": "2018-01-01T12:00:00"
       },
       { // Stockholm
-        "OriginId": 1,
+        "OriginId": 2,
         "DestinationId": 5,
         "QuoteIds": [
           5,
@@ -35,7 +35,7 @@ var LIS_DATA = {
         "QuoteDateTime": "2018-01-01T12:00:00"
       },
       { // Tallinn
-        "OriginId": 1,
+        "OriginId": 2,
         "DestinationId": 6,
         "QuoteIds": [
           7,
@@ -98,7 +98,7 @@ var LIS_DATA = {
           "CarrierIds": [
             420
           ],
-          "OriginId": 1,
+          "OriginId": 2,
           "DestinationId": 4,
           "DepartureDate": "2018-04-05T10:20:00"
         },
@@ -107,7 +107,7 @@ var LIS_DATA = {
             420
           ],
           "OriginId": 4,
-          "DestinationId": 1,
+          "DestinationId": 2,
           "DepartureDate": "2018-04-11T12:30:00"
         },
         "QuoteDateTime": "2018-01-01T12:00:00"
@@ -120,7 +120,7 @@ var LIS_DATA = {
           "CarrierIds": [
             420
           ],
-          "OriginId": 1,
+          "OriginId": 2,
           "DestinationId": 4,
           "DepartureDate": "2018-04-01T11:11:00"
         },
@@ -129,7 +129,7 @@ var LIS_DATA = {
             420
           ],
           "OriginId": 4,
-          "DestinationId": 1,
+          "DestinationId": 2,
           "DepartureDate": "2018-04-08T17:45:00"
         },
         "QuoteDateTime": "2018-01-01T12:00:00"
@@ -142,7 +142,7 @@ var LIS_DATA = {
           "CarrierIds": [
             420
           ],
-          "OriginId": 1,
+          "OriginId": 2,
           "DestinationId": 5,
           "DepartureDate": "2018-04-05T12:25:00"
         },
@@ -151,7 +151,7 @@ var LIS_DATA = {
             420
           ],
           "OriginId": 5,
-          "DestinationId": 1,
+          "DestinationId": 2,
           "DepartureDate": "2018-04-15T05:35:00"
         },
         "QuoteDateTime": "2018-01-01T12:00:00"
@@ -164,7 +164,7 @@ var LIS_DATA = {
           "CarrierIds": [
             420
           ],
-          "OriginId": 1,
+          "OriginId": 2,
           "DestinationId": 5,
           "DepartureDate": "2018-04-03T18:10:00"
         },
@@ -173,7 +173,7 @@ var LIS_DATA = {
             420
           ],
           "OriginId": 5,
-          "DestinationId": 1,
+          "DestinationId": 2,
           "DepartureDate": "2018-04-11T07:15:00"
         },
         "QuoteDateTime": "2018-01-01T12:00:00"
@@ -186,7 +186,7 @@ var LIS_DATA = {
           "CarrierIds": [
             420
           ],
-          "OriginId": 1,
+          "OriginId": 2,
           "DestinationId": 6,
           "DepartureDate": "2018-04-05T18:20:00"
         },
@@ -195,7 +195,7 @@ var LIS_DATA = {
             420
           ],
           "OriginId": 6,
-          "DestinationId": 1,
+          "DestinationId": 2,
           "DepartureDate": "2018-04-09T12:00:00"
         },
         "QuoteDateTime": "2018-01-01T12:00:00"
@@ -208,7 +208,7 @@ var LIS_DATA = {
           "CarrierIds": [
             420
           ],
-          "OriginId": 1,
+          "OriginId": 2,
           "DestinationId": 6,
           "DepartureDate": "2018-04-05T21:00:00"
         },
@@ -217,7 +217,7 @@ var LIS_DATA = {
             420
           ],
           "OriginId": 6,
-          "DestinationId": 1,
+          "DestinationId": 2,
           "DepartureDate": "2018-04-12T12:00:00"
         },
         "QuoteDateTime": "2018-01-01T12:00:00"
