@@ -8,42 +8,21 @@
     Date Max: 15/04/2018
 */
 
-// Flights with same destination
+// Declare variables
 var common_destination = [];
+var Combos = [];
+var cheapest_combos = [];
 
-common_destination = quotesToDestination(GLA_DATA, LIS_DATA, 1);
+for (var i = 0; i < GLA_DATA.Routes.length; i++){
 
-// Combo 1 [0][0] + [1][0]
+    common_destination = quotesToDestination(GLA_DATA, LIS_DATA, i);
 
-// Display Destination Name
-console.log(GLA_DATA);
-for (var l = 0; l < GLA_DATA.Places.length; l++){
-    if (common_destination[0][0].OutboundLeg.DestinationId == GLA_DATA.Places[l].PlaceId){
-        destination_name = GLA_DATA.Places[l].Name;
-    }
+    combos_fixed_destination = combosToDestination(common_destination);
+
+    displayDestinationName(combos_fixed_destination[0], GLA_DATA);
+    displayCheapestQuote(combos_fixed_destination);
+
+    Combos[i] = combos_fixed_destination;
+    cheapest_combos[i] = combos_fixed_destination[0];
+
 }
-console.log('Flights to : ' + destination_name);
-
-// Find average Price
-averagePrice = 0.5*(common_destination[0][0].MinPrice + common_destination[1][0].MinPrice);
-console.log('$' + averagePrice + ' per person on average');
-
-// Difference in Arrival Time
-var d1 = new Date(common_destination[0][0].OutboundLeg.DepartureDate);
-var d2 = new Date(common_destination[1][0].OutboundLeg.DepartureDate);
-var d_diff_out = d2 - d1;
-var d_diff_out_hours = Math.abs(Math.floor(d_diff_out / 60e3 / 60));
-console.log(d_diff_out_hours + ' hours difference at arrival');
-
-// Difference in Departure Time
-var d3 = new Date(common_destination[0][0].InboundLeg.DepartureDate);
-var d4 = new Date(common_destination[1][0].InboundLeg.DepartureDate);
-var d_diff_in = d3 - d4;
-var d_diff_in_hours = Math.abs(Math.floor(d_diff_in / 60e3 / 60));
-console.log(d_diff_in_hours + ' hours difference at departure');
-
-// Combo 2 [0][1] + [1][0]
-
-// Combo 3 [0][0] + [1][1]
-
-// Combo 3 [0][1] + [1][1]
