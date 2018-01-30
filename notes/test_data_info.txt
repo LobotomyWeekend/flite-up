@@ -1,0 +1,49 @@
+NOTES on TEST DATA
+
+To manually generate lots of test data in the same structure as
+the full json file will take AGEESSSS. I need to strip it back so it
+only has the really important data, saved in the same structure.
+
+    > OridinId
+    > DestinationId
+    > Price
+    > DepartureDate (OutboundLeg + InboundLeg)
+
+How many for useful results?
+
+    > 2 Origins
+    > 4 Destinations
+        > 2 return flights during period
+
+    2 origins * 4 destinations * (2*2) individual flights 
+        = 32 ENTRIES
+    
+Each origin should have 4 Routes, 8 Quotes, 
+
+We will therefore have 2 files, one is a response for Glasgow, 
+another for Lisbon.
+
+    GLA_test_data.json
+    LIS_test_data.json
+_________________________________________________________________________
+
+PlaceId VALUES
+
+    1: Glasgow      (GLA)
+    2: Lisbon       (LIS)
+    3: Istanbul     (IST)
+    4: Paris        (CDG)
+    5: Stockholm    (ARN)
+    6: Tallinn      (TLL)
+
+DATE RANGE
+
+    All dates should fall within 1st April to 15th April 2018 for simplicity.
+    Dates are in the form:
+
+        "2018-04-01T01:00:00"
+        "YEAR-MO-DA*HR:MI:SE"
+
+PRICE RANGE
+
+    <100 EUR

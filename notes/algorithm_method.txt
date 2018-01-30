@@ -1,0 +1,31 @@
+ALGORITHM METHOD
+
+To successfully produce an algorithm I need to come up with a 
+plan for how it will work.
+
+STEP 1 - Process Request
+
+    > Make "API Request"
+    > Load JSON files
+    > Remove/Ignore any destinations not common to all
+
+STEP 2 - Compare prices
+
+    > Find relevant combinations of flights (e.g. GLA-CDG + LIS-CDG)
+    > Calculate Average price for each combo
+    > Calculate standard deviations
+    > Generate RESULTS array containing combos:
+        > Destination
+        > Flight Times (Origin 1 + 2)
+            > Tails
+            > Overlap Length
+        > Flight Prices (Origin 1 + 2)
+        > Average Flight Price
+        > Standard Deviation Flight Price
+
+STEP 3 - Display Results
+
+    > Sort RESULTS array
+    > Display on Map
+    > Provide structured list
+    > Timeline with comparison
